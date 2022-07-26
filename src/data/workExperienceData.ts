@@ -1,4 +1,4 @@
-export const WorkExperience = {
+export const WorkExperienceData = {
 	data: [
 		{
 			role: 'Software Developer',

@@ -1,4 +1,4 @@
-export const links = {
+export const headerLinks = {
 	"links": [
 		{
 			"link": "/about",
@@ -11,6 +11,10 @@ export const links = {
 		{
 			"link": "/projects",
 			"label": "projects"
+		},
+		{
+			"link": "/contact",
+			"label": "get in touch"
 		},
 	]
 }
