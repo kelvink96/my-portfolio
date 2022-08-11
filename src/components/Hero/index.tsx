@@ -12,15 +12,16 @@ import {
 	ActionIcon,
 	Tooltip,
 } from '@mantine/core';
-import { Check } from 'tabler-icons-react';
+import {ArrowRight, Check, ChevronUpRight, Message} from 'tabler-icons-react';
 import image from './image.svg';
-import { socialLinks } from '../../data/socialLinks';
-import { iconResolver } from '../../utils';
+import {socialLinks} from '../../data/socialLinks';
+import {iconResolver} from '../../utils';
 
 const useStyles = createStyles((theme) => ({
 	inner: {
 		display: 'flex',
 		justifyContent: 'space-between',
+		alignItems: 'center',
 		paddingTop: theme.spacing.xl * 4,
 		paddingBottom: theme.spacing.xl * 4,
 	},
@@ -73,28 +74,27 @@ const useStyles = createStyles((theme) => ({
 }));
 
 export default function HeroSection() {
-	const { classes } = useStyles();
+	const {classes} = useStyles();
 	return (
 		<div>
 			<Container>
 				<div className={classes.inner}>
 					<div className={classes.content}>
-						<Title className={classes.title}>
-							Hello,
+						<Title className={classes.title} align="start">
+							Hello, I'm Kelvin
 						</Title>
-						<Title>
-							I'm Kelvin, a
-						</Title>
-						<Title>
-							UI/UX, Graphic Designer & Software Developer
-						</Title>
-						<Text>I love experimenting with new technologies.</Text>
-						<Button>Let's get in touch</Button>
-						<Group>
+						<Text mt="xl" align="start">Hi, I'm a UI/UX, Graphic Designer & Software Developer and
+							I love experimenting with new technologies.</Text>
+						<Group mt="xl">
+							<Button size="lg" rightIcon={<Message/>}>Let's talk</Button>
+							<Button size="lg" rightIcon={<ChevronUpRight/>}>Portfolio</Button>
+						</Group>
+						<Group mt="xl">
 							<Text>Check out my</Text>
 							<Group>{socialLinks.links.map(link => link.type == 1 &&
 								<Tooltip label={link.label}>
-									<ActionIcon size="lg" radius="xs" title={link.label}>{iconResolver(link.icon)}</ActionIcon>
+									<ActionIcon size="xl" radius="xs" title={link.label}
+															variant="light">{iconResolver(link.icon)}</ActionIcon>
 								</Tooltip>
 							)}
 							</Group>
@@ -102,7 +102,7 @@ export default function HeroSection() {
 					</div>
 					<Image
 						src="https://scontent.fnuu2-1.fna.fbcdn.net/v/t1.6435-9/123549112_3390195514433537_1119106520716065407_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=84a396&_nc_ohc=LTwLUhufTp8AX8miS2f&_nc_ht=scontent.fnuu2-1.fna&oh=00_AT9Qpyw1lvnR-FvURGYNuJvOZBjzCP01EoW0cOZMeDTYVQ&oe=62FDFEA6"
-						className={classes.image} />
+						className={classes.image}/>
 				</div>
 			</Container>
 		</div>

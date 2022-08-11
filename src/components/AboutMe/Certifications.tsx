@@ -3,12 +3,9 @@ import {
 	Card,
 	createStyles,
 	List,
-	ListItem,
 	SimpleGrid,
 	ThemeIcon,
 	Text,
-	useMantineTheme,
-	Paper,
 	Spoiler
 } from "@mantine/core";
 import {BuildingCommunity, CalendarEvent, Certificate2, CircleCheck, CircleDashed} from "tabler-icons-react";

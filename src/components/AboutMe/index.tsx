@@ -15,9 +15,6 @@ import {WorkExperienceData} from "../../data/workExperienceData";
 import Certifications from "./Certifications";
 import {AwardsLinks} from "../../data/awardsLinks";
 
-const {Tab} = Tabs
-const {Item} = List
-
 const useStyles = createStyles((theme) => ({
 	content: {
 		textAlign: "left"
@@ -38,40 +35,46 @@ const AboutMeSection = () => {
 					Applications from Kisii University
 				</Text>
 			</Box>
-			<Tabs tabPadding="md" grow>
-				<Tab label="Work Experience" icon={<Settings size={14}/>}>
+			<Tabs defaultValue="Work Experience">
+				<Tabs.List>
+					<Tabs.Tab value="Work Experience" icon={<Settings size={14}/>}>Work Experience</Tabs.Tab>
+					<Tabs.Tab value="Certifications" icon={<Certificate size={14}/>}>Certifications</Tabs.Tab>
+					<Tabs.Tab value="Education" icon={<BuildingCommunity size={14}/>}>Education</Tabs.Tab>
+					<Tabs.Tab value="More Info" icon={<BuildingCommunity size={14}/>}>More Info</Tabs.Tab>
+				</Tabs.List>
+				<Tabs.Panel value="Work Experience" pt="xs">
 					<WorkExperience data={WorkExperienceData.data}/>
-				</Tab>
-				<Tab label="Certifications" icon={<Certificate size={14}/>}>
+				</Tabs.Panel>
+				<Tabs.Panel value="Certifications" pt="xs">
 					<Certifications data={AwardsLinks.data}/>
-				</Tab>
-				<Tab label="Education" icon={<BuildingCommunity size={14}/>}>
+				</Tabs.Panel>
+				<Tabs.Panel value="Education" pt="xs">
 					<Card className={classes.content}>
 						<Text weight={500} mb="sm">Bachelor of Science in Software Engineering</Text>
 						<Text>Kisii University</Text>
 						<Text>2014 - 2018</Text>
 					</Card>
-				</Tab>
-				<Tab label="More info" icon={<InfoCircle size={14}/>}>
+				</Tabs.Panel>
+				<Tabs.Panel value="More Info" pt="xs">
 					<SimpleGrid cols={3}>
 						<Card className={classes.content}>
 							<Title mb="md"><Language/> Languages</Title>
 							<List type="ordered">
-								<Item>Swahili</Item>
-								<Item>English</Item>
+								<List.Item>Swahili</List.Item>
+								<List.Item>English</List.Item>
 							</List>
 						</Card>
 						<Card className={classes.content}>
 							<Title mb="md"><DeviceGamepad2/> Hobbies</Title>
 							<List type="ordered" size="md">
-								<Item>Gaming</Item>
-								<Item>Hiking</Item>
-								<Item>Listening to music</Item>
-								<Item>Watching movies</Item>
+								<List.Item>Gaming</List.Item>
+								<List.Item>Hiking</List.Item>
+								<List.Item>Listening to music</List.Item>
+								<List.Item>Watching movies</List.Item>
 							</List>
 						</Card>
 					</SimpleGrid>
-				</Tab>
+				</Tabs.Panel>
 			</Tabs>
 		</Container>
 	);
