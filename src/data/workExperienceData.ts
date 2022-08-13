@@ -1,6 +1,13 @@
 export const WorkExperienceData = {
 	data: [
 		{
+			role: 'Video Editor',
+			company: 'Tambua Women in Tech',
+			startPeriod: 'May, 2022',
+			endPeriod: 'Present',
+			location: 'Nairobi, Kenya'
+		},
+		{
 			role: 'Software Developer',
 			company: 'Alternate Limited',
 			startPeriod: 'December, 2018',

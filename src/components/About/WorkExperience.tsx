@@ -1,5 +1,6 @@
 import React from 'react';
-import {Card, createStyles, SimpleGrid, Text} from "@mantine/core";
+import {Box, Card, Container, createStyles, SimpleGrid, Text, Title} from "@mantine/core";
+import {UserCircle} from "tabler-icons-react";
 
 const useStyles = createStyles((theme) => ({
 	card: {
@@ -21,7 +22,7 @@ const WorkExperience = ({data}: WorkExperienceProps) => {
 	const {classes} = useStyles()
 
 	const items = data.map(d =>
-		<Card className={classes.card}>
+		<Card className={classes.card} p="md" withBorder>
 			<Text>{d.role}</Text>
 			<Text>{d.company}</Text>
 			<Text>{d.startPeriod} - {d.endPeriod}</Text>
@@ -30,9 +31,14 @@ const WorkExperience = ({data}: WorkExperienceProps) => {
 	)
 
 	return (
-		<SimpleGrid cols={3}>
-			{items}
-		</SimpleGrid>
+		<Container>
+			<Box>
+				<Title>Experience</Title>
+			</Box>
+			<SimpleGrid cols={2}>
+				{items}
+			</SimpleGrid>
+		</Container>
 	);
 };
 
