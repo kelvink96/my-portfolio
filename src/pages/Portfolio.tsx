@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Wrapper from "./Wrapper";
+import {FeaturedProjectsSection} from "../components/Portfolio";
+import {ProjectsData} from '../data/projectsData';
 
 const Portfolio = () => {
 	const [gitHubProfile, setGitHubProfile] = useState()
@@ -27,9 +29,11 @@ const Portfolio = () => {
 		fetchGitRepos()
 	}, [])
 
+	console.log(githubRepos)
 
 	return (
 		<Wrapper>
+			<FeaturedProjectsSection data={ProjectsData.data}/>
 		</Wrapper>
 	);
 };
