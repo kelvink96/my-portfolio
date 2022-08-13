@@ -63,6 +63,22 @@ export const ProjectsData = {
             tags: ['react', 'bootstrap', 'education site', 'education'],
             gitUrl: 'https://github.com/kelvink96/e-ducate',
             liveUrl: 'http://e-ducate.vercel.app/'
+        },
+        {
+            title: 'acevpn',
+            alias: 'acevpn',
+            description: 'Uplabs VPN UI challenge - https://www.uplabs.com/challenges/vpn-app-challenge',
+            tags: ['react', 'mantine', 'vpn site', 'landing page'],
+            gitUrl: 'https://github.com/kelvink96ltd/vpn-challenge',
+            liveUrl: 'https://62b8ada9f345057c4fb44d4c--fantastic-speculoos-9fcd96.netlify.app/'
+        },
+        {
+            title: 'm-network',
+            alias: 'm-network',
+            description: 'M-network ISP website',
+            tags: ['react', 'bootstrap', 'ISP site'],
+            gitUrl: '',
+            liveUrl: 'https://mnetwork.co.ke/'
         }
     ]
 }
