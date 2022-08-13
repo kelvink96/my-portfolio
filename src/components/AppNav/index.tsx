@@ -102,7 +102,6 @@ const AppNav = ({links}: AppNavProps) => {
 				key={link.label}
 				href={link.link}
 				className={classes.link}
-				onClick={(event: any) => event.preventDefault()}
 				variant="subtle"
 			>
 				{link.label}
@@ -128,13 +127,6 @@ const AppNav = ({links}: AppNavProps) => {
 					<Group spacing={5} className={classes.links}>
 						{items}
 					</Group>
-				</Group>
-				<Group>
-					{socialLinks.links.map(link => link.type == 0 &&
-						<Tooltip key={link.label} label={link.label}>
-							<ActionIcon>{iconResolver(link.icon)}</ActionIcon>
-						</Tooltip>
-					)}
 				</Group>
 			</Container>
 		</Header>

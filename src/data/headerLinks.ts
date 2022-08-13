@@ -1,12 +1,12 @@
 export const headerLinks = {
 	"links": [
 		{
-			"link": "/about",
-			"label": "about"
+			"link": "/",
+			"label": "home"
 		},
 		{
-			"link": "/skills",
-			"label": "skills"
+			"link": "/about",
+			"label": "about"
 		},
 		{
 			"link": "/portfolio",

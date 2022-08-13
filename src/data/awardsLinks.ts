@@ -101,24 +101,6 @@ export const AwardsLinks = {
 			institution: 'IBM',
 			issuedOn: 'September 22, 2018',
 			link: 'https://www.credly.com/badges/2be31a8d-31b8-4194-9356-ada5c95e5837/linked_in_profile'
-		},
-		{
-			title: 'Node.js',
-			institution: 'IBM',
-			issuedOn: 'Feb 2019',
-			link: 'https://www.credly.com/badges/2d9a9281-7714-4515-a929-10b0420efc7d/linked_in_profile'
-		},
-		{
-			title: 'Node.js',
-			institution: 'IBM',
-			issuedOn: 'Feb 2019',
-			link: 'https://www.credly.com/badges/2d9a9281-7714-4515-a929-10b0420efc7d/linked_in_profile'
-		},
-		{
-			title: 'Node.js',
-			institution: 'IBM',
-			issuedOn: 'Feb 2019',
-			link: 'https://www.credly.com/badges/2d9a9281-7714-4515-a929-10b0420efc7d/linked_in_profile'
-		},
+		}
 	]
 }

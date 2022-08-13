@@ -1,13 +1,13 @@
 export const SkillsData = {
     data: [
         {
-            title: 'Python & Flask',
+            title: 'Python',
             description: 'Flask is a small and lightweight Python web framework that provides useful tools and features that make creating web applications in Python easier.',
             links: ['https://python.org', 'https://flask.palletsprojects.com/en/2.1.x/'],
             tags: [{ title: 'python', link: 'https://python.org' }, { title: 'flask', link: 'https://flask.palletsprojects.com/en/2.1.x/' }]
         },
         {
-            title: 'HTML & CSS (SASS, SCSS, LESS)',
+            title: 'HTML & CSS',
             description: 'HTML (the Hypertext Markup Language) and CSS (Cascading Style Sheets) are two of the core technologies for building Web pages. HTML provides the structure of the page, CSS the (visual and aural) layout, for a variety of devices.',
             links: ['https://www.w3schools.com/html/', 'https://www.w3schools.com/css/'],
             tags: [{ title: 'HTML', link: 'https://www.w3schools.com/html/' }, { title: 'CSS', link: 'https://www.w3schools.com/css/' }, { title: 'SASS', link: 'https://www.w3schools.com/css/' }, { title: 'SCSS', link: 'https://www.w3schools.com/css/' }]
@@ -27,7 +27,7 @@ export const SkillsData = {
             ]
         },
         {
-            title: 'C-Sharp / C#',
+            title: 'C#',
             description: 'C# is often used to develop professional, dynamic websites on the . NET platform, or open-source software.',
             links: ['https://www.w3schools.com/cs/index.php', 'https://docs.microsoft.com/en-us/dotnet/csharp/'],
             tags: [
@@ -46,12 +46,14 @@ export const SkillsData = {
             ]
         },
         {
-            title: 'NodeJS / Node.js',
-            description: 'Node.js is an open-source and cross-platform JavaScript runtime environment. It is a popular tool for almost any kind of project',
-            links: ['https://nodejs.org/en/', 'https://www.w3schools.com/nodejs/nodejs_intro.asp'],
+            title: 'JavaScript',
+            description: 'JavaScript (JS) is a lightweight, interpreted, or just-in-time compiled programming language with first-class functions. While it is most well-known as the scripting language for Web pages, many non-browser environments also use it, such as Node.js, Apache CouchDB and Adobe Acrobat.',
+            links: ['https://developer.mozilla.org/en-US/docs/Web/JavaScript', 'https://www.w3schools.com/nodejs/nodejs_intro.asp', 'https://www.w3schools.com/js/'],
             tags: [
-                { title: 'node.js', link: '' },
                 { title: 'nodejs', link: '' },
+                { title: 'typescript', link: '' },
+                { title: 'react', link: '' },
+                { title: 'javascript', link: '' },
             ]
         },
         {
