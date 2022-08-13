@@ -12,7 +12,7 @@ import {
 	ActionIcon,
 	Tooltip,
 } from '@mantine/core';
-import {ArrowRight, Check, ChevronUpRight, Message} from 'tabler-icons-react';
+import {ArrowRight, Check, ChevronUpRight, Message, Send} from 'tabler-icons-react';
 import image from './image.svg';
 import {socialLinks} from '../../data/socialLinks';
 import {iconResolver} from '../../utils';
@@ -22,8 +22,8 @@ const useStyles = createStyles((theme) => ({
 		display: 'flex',
 		justifyContent: 'space-between',
 		alignItems: 'center',
-		paddingTop: theme.spacing.xl * 4,
-		paddingBottom: theme.spacing.xl * 4,
+		paddingTop: theme.spacing.xl,
+		paddingBottom: theme.spacing.xl,
 	},
 
 	content: {
@@ -86,15 +86,19 @@ export default function HeroSection() {
 						<Text mt="xl" align="start">Hi, I'm a UI/UX, Graphic Designer & Software Developer and
 							I love experimenting with new technologies.</Text>
 						<Group mt="xl">
-							<Button size="lg" rightIcon={<Message/>}>Let's talk</Button>
+							<Button size="lg" rightIcon={<Send/>}>Let's talk</Button>
 							<Button size="lg" rightIcon={<ChevronUpRight/>}>Portfolio</Button>
 						</Group>
 						<Group mt="xl">
 							<Text>Check out my</Text>
 							<Group>{socialLinks.links.map(link => link.type == 1 &&
 								<Tooltip label={link.label}>
-									<ActionIcon size="xl" radius="xs" title={link.label}
-															variant="light">{iconResolver(link.icon)}</ActionIcon>
+									<ActionIcon
+										size="xl"
+										radius="xs"
+										title={link.label}
+										variant="light">{iconResolver(link.icon)}
+									</ActionIcon>
 								</Tooltip>
 							)}
 							</Group>

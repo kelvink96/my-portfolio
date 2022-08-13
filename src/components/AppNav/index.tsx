@@ -44,6 +44,7 @@ const useStyles = createStyles((theme) => ({
 		color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.gray[7],
 		fontSize: theme.fontSizes.sm,
 		fontWeight: 500,
+		textTransform: 'capitalize',
 
 		'&:hover': {
 			backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
@@ -100,7 +101,7 @@ const AppNav = ({links}: AppNavProps) => {
 				component='a'
 				key={link.label}
 				href={link.link}
-				// className={classes.link}
+				className={classes.link}
 				onClick={(event: any) => event.preventDefault()}
 				variant="subtle"
 			>

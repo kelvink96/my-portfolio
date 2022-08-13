@@ -9,8 +9,8 @@ export const headerLinks = {
 			"label": "skills"
 		},
 		{
-			"link": "/projects",
-			"label": "projects"
+			"link": "/portfolio",
+			"label": "portfolio"
 		},
 		{
 			"link": "/contact",
