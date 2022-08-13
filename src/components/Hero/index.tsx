@@ -38,7 +38,6 @@ const useStyles = createStyles((theme) => ({
 
 	title: {
 		color: theme.colorScheme === 'dark' ? theme.white : theme.black,
-		fontFamily: `Greycliff CF, ${theme.fontFamily}`,
 		fontSize: 44,
 		lineHeight: 1.2,
 		fontWeight: 900,
@@ -76,39 +75,55 @@ const useStyles = createStyles((theme) => ({
 export default function HeroSection() {
 	const {classes} = useStyles();
 	return (
-		<div>
-			<Container>
-				<div className={classes.inner}>
-					<div className={classes.content}>
-						<Title className={classes.title} align="start">
-							Hello, I'm Kelvin
-						</Title>
-						<Text mt="xl" align="start">Hi, I'm a UI/UX, Graphic Designer & Software Developer and
-							I love experimenting with new technologies.</Text>
-						<Group mt="xl">
-							<Button size="lg" rightIcon={<Send/>}>Let's talk</Button>
-							<Button size="lg" rightIcon={<ChevronUpRight/>}>Portfolio</Button>
-						</Group>
-						<Group mt="xl">
-							<Text>Check out my</Text>
-							<Group>{socialLinks.links.map(link => link.type == 1 &&
+		<Container pb="lg">
+			<div className={classes.inner}>
+				<div className={classes.content}>
+					<Title className={classes.title} align="start">
+						Hello, I'm Kelvin
+					</Title>
+					<Text mt="xl" pb="md" align="start">I'm a UI/UX, Graphic Designer & Software Developer and
+						I love experimenting with new technologies.</Text>
+					<Group mt="xl" pb="md">
+						<Button
+							size="lg"
+							rightIcon={<Send/>}
+							component="a"
+							href="/contact"
+						>
+							Let's talk
+						</Button>
+						<Button
+							size="lg"
+							rightIcon={<ChevronUpRight/>}
+							component="a"
+							href="/portfolio"
+						>
+							Portfolio
+						</Button>
+					</Group>
+					<Group mt="xl">
+						<Text>Check out my</Text>
+						<Group>
+							{socialLinks.links.map(link => link.type === 1 &&
 								<Tooltip label={link.label}>
 									<ActionIcon
 										size="xl"
 										radius="xs"
 										title={link.label}
-										variant="light">{iconResolver(link.icon)}
+										variant="default"
+										color="blue"
+									>
+										{iconResolver(link.icon)}
 									</ActionIcon>
 								</Tooltip>
 							)}
-							</Group>
 						</Group>
-					</div>
-					<Image
-						src="https://scontent.fnuu2-1.fna.fbcdn.net/v/t1.6435-9/123549112_3390195514433537_1119106520716065407_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=84a396&_nc_ohc=LTwLUhufTp8AX8miS2f&_nc_ht=scontent.fnuu2-1.fna&oh=00_AT9Qpyw1lvnR-FvURGYNuJvOZBjzCP01EoW0cOZMeDTYVQ&oe=62FDFEA6"
-						className={classes.image}/>
+					</Group>
 				</div>
-			</Container>
-		</div>
+				<Image
+					src="https://scontent.fnuu2-1.fna.fbcdn.net/v/t1.6435-9/123549112_3390195514433537_1119106520716065407_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=84a396&_nc_ohc=LTwLUhufTp8AX8miS2f&_nc_ht=scontent.fnuu2-1.fna&oh=00_AT9Qpyw1lvnR-FvURGYNuJvOZBjzCP01EoW0cOZMeDTYVQ&oe=62FDFEA6"
+					className={classes.image}/>
+			</div>
+		</Container>
 	);
 }

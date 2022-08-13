@@ -23,7 +23,7 @@ const WorkExperience = ({data}: WorkExperienceProps) => {
 
 	const items = data.map(d =>
 		<Card className={classes.card} p="md" withBorder>
-			<Text>{d.role}</Text>
+			<Text weight={500} mb="sm">{d.role}</Text>
 			<Text>{d.company}</Text>
 			<Text>{d.startPeriod} - {d.endPeriod}</Text>
 			<Text>{d.location}</Text>
@@ -31,14 +31,12 @@ const WorkExperience = ({data}: WorkExperienceProps) => {
 	)
 
 	return (
-		<Container>
-			<Box>
-				<Title>Experience</Title>
-			</Box>
+		<Box py="xl">
+			<Title mb="lg">Experience</Title>
 			<SimpleGrid cols={2}>
 				{items}
 			</SimpleGrid>
-		</Container>
+		</Box>
 	);
 };
 

@@ -7,22 +7,33 @@ import {
 	Container,
 	Group,
 	Button,
-	Burger, ActionIcon, Tooltip,
+	Burger, ActionIcon, Tooltip, Title,
 } from '@mantine/core';
-import {ChevronDown, Icons, ThreeDCubeSphere} from 'tabler-icons-react';
+import {BrandGithub, ChevronDown, Icons, ThreeDCubeSphere} from 'tabler-icons-react';
 import {socialLinks} from "../../data/socialLinks";
 import {iconResolver} from '../../utils';
 
 const HEADER_HEIGHT = 60;
 
 const useStyles = createStyles((theme) => ({
+	header: {
+		position: "sticky",
+		borderBottom: "1px solid",
+		backgroundColor: theme.fn.variant({variant: 'filled', color: theme.primaryColor}).background,
+		color: "white"
+	},
 	inner: {
 		height: HEADER_HEIGHT,
 		display: 'flex',
 		justifyContent: 'space-between',
 		alignItems: 'center',
 	},
-
+	brand: {
+		fontWeight: "bold",
+		textDecoration: "none",
+		color: theme.white,
+		fontSize: 18
+	},
 	links: {
 		[theme.fn.smallerThan('sm')]: {
 			display: 'none',
@@ -41,13 +52,16 @@ const useStyles = createStyles((theme) => ({
 		padding: '8px 12px',
 		borderRadius: theme.radius.sm,
 		textDecoration: 'none',
-		color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.gray[7],
+		color: theme.white,
 		fontSize: theme.fontSizes.sm,
 		fontWeight: 500,
 		textTransform: 'capitalize',
 
 		'&:hover': {
-			backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
+			backgroundColor: theme.fn.lighten(
+				theme.fn.variant({variant: 'filled', color: theme.primaryColor}).background,
+				0.2
+			),
 		},
 	},
 
@@ -114,9 +128,9 @@ const AppNav = ({links}: AppNavProps) => {
 	}
 
 	return (
-		<Header height={HEADER_HEIGHT} sx={{borderBottom: 0}} mb={120}>
+		<Header height={HEADER_HEIGHT} sx={{borderBottom: 0}} mb={120} className={classes.header}>
 			<Container className={classes.inner}>
-				<ThreeDCubeSphere/>
+				<a href="/" className={classes.brand}>Kelvin Kiptum</a>
 				<Group>
 					<Burger
 						opened={opened}
@@ -128,6 +142,14 @@ const AppNav = ({links}: AppNavProps) => {
 						{items}
 					</Group>
 				</Group>
+				<Button
+					leftIcon={<BrandGithub/>}
+					component="a"
+					href="https://github.com/kelvink96"
+					target="_blank"
+				>
+					Github
+				</Button>
 			</Container>
 		</Header>
 	);

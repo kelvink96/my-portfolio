@@ -89,11 +89,24 @@ const ContactSection = () => {
 					</Stack>
 				</Box>
 				<div className={classes.form}>
-					<TextInput label="Your name" placeholder="Your name"/>
-					<TextInput mt="md" label="Your email" placeholder="hello@gmail.com" required/>
-					<TextInput mt="md" label="Subject" placeholder="Subject" required/>
+					<TextInput
+						label="Your name"
+						placeholder="Your name"
+					/>
+					<TextInput
+						mt="lg"
+						label="Your email"
+						placeholder="hello@gmail.com"
+						required
+					/>
+					<TextInput
+						mt="lg"
+						label="Subject"
+						placeholder="Subject"
+						required
+					/>
 					<Textarea
-						mt="md"
+						mt="lg"
 						label="Your message"
 						placeholder="Please include all relevant information"
 						minRows={3}

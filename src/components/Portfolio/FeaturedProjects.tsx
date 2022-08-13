@@ -67,7 +67,7 @@ const FeaturedProjects = ({data}: ProjectsProps) => {
 
 	return (
 		<Container>
-			<Box>
+			<Box mb="xl" py="lg">
 				<Title>Featured projects</Title>
 			</Box>
 			<SimpleGrid cols={2}>

@@ -141,6 +141,7 @@ const Certifications = ({data}: TableSortProps) => {
 					href={row.link}
 					target="_blank"
 					rightIcon={<ExternalLink size={14}/>}
+					variant="subtle"
 				>
 					show credential
 				</Button>
@@ -149,10 +150,8 @@ const Certifications = ({data}: TableSortProps) => {
 	));
 
 	return (
-		<Container>
-			<Box>
-				<Title>Certifications</Title>
-			</Box>
+		<Box py="xl">
+			<Title mb="lg">Certifications</Title>
 			<ScrollArea>
 				<TextInput
 					placeholder="Search by any field"
@@ -222,7 +221,7 @@ const Certifications = ({data}: TableSortProps) => {
 					</tfoot>
 				</Table>
 			</ScrollArea>
-		</Container>
+		</Box>
 	)
 };
 
