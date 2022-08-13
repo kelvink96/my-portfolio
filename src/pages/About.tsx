@@ -1,6 +1,6 @@
 import React from 'react';
 import Wrapper from "./Wrapper";
-import {Container, createStyles, Grid} from "@mantine/core";
+import {Container, createStyles, Divider, Grid} from "@mantine/core";
 import {
 	BioSection,
 	CertificationSection,
@@ -12,19 +12,23 @@ import {
 import {SkillsData} from '../data/skillsData';
 import {AwardsLinks} from '../data/awardsLinks';
 import {WorkExperienceData} from '../data/workExperienceData';
+import {Helmet} from "react-helmet";
 
 const {Col} = Grid
 
 const About = () => {
 	return (
 		<Wrapper>
+			<Helmet>
+				<title>About | Kelvin Kiptum</title>
+			</Helmet>
 			<Container>
 				<Grid>
-					<Col span={8}>
+					<Col span={7} pb="xl">
 						<BioSection/>
-						<EducationSection/>
 					</Col>
-					<Col span={4}>
+					<Col span={5} pb="xl">
+						<EducationSection/>
 						<MoreInfoSection/>
 					</Col>
 					<Col>

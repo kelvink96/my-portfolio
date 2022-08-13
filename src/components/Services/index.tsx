@@ -9,6 +9,9 @@ const useStyles = createStyles((theme) => ({
 		paddingTop: theme.spacing.xl * 4,
 		paddingBottom: theme.spacing.xl * 4,
 	},
+	content: {
+		textAlign: "center"
+	}
 }))
 
 interface ServicesProps {
@@ -22,23 +25,22 @@ interface ServicesProps {
 const ServicesSection = ({data}: ServicesProps) => {
 	const {classes} = useStyles()
 	return (
-		<Container>
-			<Box>
-				<Title>services i offer</Title>
-				<Text>i help ambitious business like yours generate more profit by building awareness, driving web traffic,
-					connecting with customers and growing overall sales.</Text>
+		<Container py="lg">
+			<Box mb="xl">
+				<Title mb="lg">Services I Offer</Title>
+				<Text mb="lg">I help ambitious business like yours generate more profit by building awareness, driving web
+					traffic, connecting with customers and growing overall sales.</Text>
 			</Box>
-			<SimpleGrid cols={3}>
+			<SimpleGrid cols={3} py="lg">
 				{data.map(d =>
-					<Card>
+					<Card className={classes.content} p="md" withBorder key={d.title}>
 						<Image
-							width={48}
-							height={48}
 							fit="contain"
 							src={d.imageUrl}
+							mx="auto"
+							width={48}
 						/>
-						<Title>{d.title}</Title>
-						<Text>{d.description}</Text>
+						<Text weight={500} size="lg" mt="lg" mb="sm">{d.title}</Text>
 					</Card>
 				)}
 			</SimpleGrid>

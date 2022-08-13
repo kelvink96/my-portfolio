@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {
 	Anchor,
 	Badge,
@@ -14,7 +14,7 @@ import {
 	Text,
 	Title, useMantineTheme
 } from "@mantine/core";
-import { ChevronDown, ExternalLink } from "tabler-icons-react";
+import {ChevronDown, ExternalLink} from "tabler-icons-react";
 
 const useStyles = createStyles((theme) => ({
 	simpleCard: {
@@ -35,8 +35,8 @@ interface SkillsProps {
 	}[]
 }
 
-const Skills = ({ data }: SkillsProps) => {
-	const { classes } = useStyles()
+const Skills = ({data}: SkillsProps) => {
+	const {classes} = useStyles()
 	const theme = useMantineTheme()
 
 	const items = data.map(d =>
@@ -49,14 +49,12 @@ const Skills = ({ data }: SkillsProps) => {
 	)
 
 	return (
-		<Container>
-			<Box>
-				<Title>Skills</Title>
-			</Box>
+		<Box py="xl">
+			<Title mb="lg">Skills</Title>
 			<SimpleGrid cols={3}>
 				{items}
 			</SimpleGrid>
-		</Container>
+		</Box>
 	);
 };
 

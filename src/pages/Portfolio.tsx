@@ -2,6 +2,9 @@ import React, {useState, useEffect} from 'react';
 import Wrapper from "./Wrapper";
 import {FeaturedProjectsSection} from "../components/Portfolio";
 import {ProjectsData} from '../data/projectsData';
+import {Helmet} from "react-helmet";
+import {Button} from '@mantine/core';
+import {ExternalLink} from 'tabler-icons-react';
 
 const Portfolio = () => {
 	const [gitHubProfile, setGitHubProfile] = useState()
@@ -29,11 +32,21 @@ const Portfolio = () => {
 		fetchGitRepos()
 	}, [])
 
-	console.log(githubRepos)
-
 	return (
 		<Wrapper>
+			<Helmet>
+				<title>Portfolio | Kelvin Kiptum</title>
+			</Helmet>
 			<FeaturedProjectsSection data={ProjectsData.data}/>
+			<Button
+				mt="xl"
+				component="a"
+				href="https://github.com/kelvink96?tab=repositories"
+				target="_blank"
+				rightIcon={<ExternalLink size={18}/>}
+			>
+				View more projects
+			</Button>
 		</Wrapper>
 	);
 };
