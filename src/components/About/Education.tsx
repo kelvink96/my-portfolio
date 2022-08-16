@@ -14,9 +14,16 @@ const Education = () => {
 	const {classes} = useStyles()
 	return (
 		<div>
-			<Title align="left" mb="lg" order={3}>Education</Title>
-			<Card p="md" withBorder className={classes.content} mb="lg">
-				<Text weight={500} mb="sm">Bachelor of Science in Software Engineering</Text>
+			<Title align="left" mb="lg">Education</Title>
+			<Card
+				p="md"
+				className={classes.content}
+				mb="md"
+				shadow="md"
+				withBorder
+				radius="xs"
+			>
+				<Text weight={600} mb="sm">Bachelor of Science in Software Engineering</Text>
 				<Text>Kisii University</Text>
 				<Text>2014 - 2018</Text>
 			</Card>

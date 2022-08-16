@@ -40,10 +40,17 @@ const Skills = ({data}: SkillsProps) => {
 	const theme = useMantineTheme()
 
 	const items = data.map(d =>
-		<Card className={classes.simpleCard} p="md" withBorder>
-			<Text weight={500} mb="md">{d.title}</Text>
+		<Card
+			key={d.title}
+			className={classes.simpleCard}
+			p="md"
+			shadow="md"
+			withBorder
+			radius="xs"
+		>
+			<Text weight={600} mb="sm">{d.title}</Text>
 			<Group>
-				{d.tags.map(tag => <Badge>{tag.title}</Badge>)}
+				{d.tags.map(tag => <Badge key={tag.title} variant="dot">{tag.title}</Badge>)}
 			</Group>
 		</Card>
 	)
@@ -51,7 +58,14 @@ const Skills = ({data}: SkillsProps) => {
 	return (
 		<Box py="xl">
 			<Title mb="lg">Skills</Title>
-			<SimpleGrid cols={3}>
+			<SimpleGrid
+				cols={3}
+				breakpoints={[
+					{maxWidth: 'md', cols: 3, spacing: 'md'},
+					{maxWidth: 'sm', cols: 2, spacing: 'sm'},
+					{maxWidth: 'xs', cols: 1, spacing: 'sm'},
+				]}
+			>
 				{items}
 			</SimpleGrid>
 		</Box>

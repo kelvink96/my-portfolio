@@ -3,6 +3,7 @@ import {
 	ActionIcon,
 	Badge,
 	Box,
+	Button,
 	Card,
 	Container, createStyles,
 	Group,
@@ -37,12 +38,19 @@ interface ProjectsProps {
 
 const FeaturedProjects = ({data}: ProjectsProps) => {
 	const {classes} = useStyles()
-	const theme = useMantineTheme()
 	const items = data.map(d =>
-		<Card className={classes.projectCard} p="md" withBorder>
-			<Text weight={500} mb="md">{d.title}</Text>
-			<Text size="sm" mb="md">{d.description}</Text>
-			<Group spacing="xs">{d.tags.map(tag => <Badge>{tag}</Badge>)}</Group>
+		<Card
+			key={d.title}
+			className={classes.projectCard}
+			p="md"
+			shadow="md"
+			withBorder
+			radius="xs"
+		>
+			<Text weight={600} mb="sm">{d.title}</Text>
+			<Text size="sm" mb="sm">{d.description}</Text>
+			<Group spacing="sm" mb="sm">
+				{d.tags.map(tag => <Badge key={`${d.title}-${tag}`} variant="dot">{tag}</Badge>)}</Group>
 			<Card.Section className={classes.footer}>
 				<Group position="apart">
 					<Text size="xs" color="dimmed">
@@ -50,14 +58,30 @@ const FeaturedProjects = ({data}: ProjectsProps) => {
 					</Text>
 					<Group spacing="xs">
 						<Tooltip label='github link'>
-							<ActionIcon component="a" href={d.gitUrl} target="_blank">
-								<BrandGithub size={18}/>
-							</ActionIcon>
+							<Button
+								component="a"
+								href={d.gitUrl}
+								target="_blank"
+								leftIcon={<BrandGithub size={18}/>}
+								variant="white"
+								compact
+								radius="xs"
+							>
+								GitHub
+							</Button>
 						</Tooltip>
 						<Tooltip label='live preview link'>
-							<ActionIcon component="a" href={d.liveUrl} target="_blank">
-								<PlayerPlay size={18}/>
-							</ActionIcon>
+							<Button
+								component="a"
+								href={d.liveUrl}
+								target="_blank"
+								leftIcon={<PlayerPlay size={18}/>}
+								variant="white"
+								compact
+								radius="xs"
+							>
+								Demo
+							</Button>
 						</Tooltip>
 					</Group>
 				</Group>
@@ -67,10 +91,17 @@ const FeaturedProjects = ({data}: ProjectsProps) => {
 
 	return (
 		<Container>
-			<Box mb="xl" py="lg">
+			<Box mb="xl">
 				<Title>Featured projects</Title>
 			</Box>
-			<SimpleGrid cols={2}>
+			<SimpleGrid
+				cols={2}
+				breakpoints={[
+					{maxWidth: 'md', cols: 3, spacing: 'md'},
+					{maxWidth: 'sm', cols: 2, spacing: 'sm'},
+					{maxWidth: 'xs', cols: 1, spacing: 'sm'},
+				]}
+			>
 				{items}
 			</SimpleGrid>
 		</Container>

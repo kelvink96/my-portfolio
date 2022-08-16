@@ -19,7 +19,12 @@ const useStyles = createStyles((theme) => ({
 	form: {
 		backgroundColor: theme.white,
 		padding: theme.spacing.lg,
-		textAlign: 'left'
+		textAlign: 'left',
+
+		[theme.fn.smallerThan('sm')]: {
+			paddingLeft: 0,
+			paddingRight: 0
+		}
 	},
 
 	social: {
@@ -68,16 +73,24 @@ const ContactSection = () => {
 		icon: Icon,
 		title: string,
 		description: string,
-	}) => <div>
-		<div>
-			<Text size="sm" align="left">{d.title}</Text>
-			<Text align="left">{d.description}</Text>
-		</div>
-	</div>)
+	}) =>
+		<div key={d.title}>
+			<div>
+				<Text size="sm" align="left">{d.title}</Text>
+				<Text align="left">{d.description}</Text>
+			</div>
+		</div>)
 
 	return (
 		<Container>
-			<SimpleGrid cols={2}>
+			<SimpleGrid
+				cols={2}
+				breakpoints={[
+					{maxWidth: 'md', cols: 3, spacing: 'md'},
+					{maxWidth: 'sm', cols: 2, spacing: 'sm'},
+					{maxWidth: 'xs', cols: 1, spacing: 'sm'},
+				]}
+			>
 				<Box>
 					<Title align="left">Contact</Title>
 					<Text mt="sm" mb={30} align="left">
