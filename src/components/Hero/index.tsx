@@ -7,15 +7,13 @@ import {
 	Button,
 	Group,
 	Text,
-	List,
-	ThemeIcon,
 	ActionIcon,
 	Tooltip,
 } from '@mantine/core';
-import {ArrowRight, Check, ChevronUpRight, Message, Send} from 'tabler-icons-react';
-import image from './image.svg';
+import {ChevronUpRight, Send} from 'tabler-icons-react';
 import {socialLinks} from '../../data/socialLinks';
 import {iconResolver} from '../../utils';
+import HeroImg from '../../assets/img/hero.jpg'
 
 const useStyles = createStyles((theme) => ({
 	inner: {
@@ -40,7 +38,6 @@ const useStyles = createStyles((theme) => ({
 		color: theme.colorScheme === 'dark' ? theme.white : theme.black,
 		fontSize: 44,
 		lineHeight: 1.2,
-		fontWeight: 900,
 
 		[theme.fn.smallerThan('xs')]: {
 			fontSize: 28,
@@ -105,8 +102,11 @@ export default function HeroSection() {
 						<Text>Check out my</Text>
 						<Group>
 							{socialLinks.links.map(link => link.type === 1 &&
-								<Tooltip label={link.label}>
+								<Tooltip label={link.label} key={`hero-${link.label}`}>
 									<ActionIcon
+										component="a"
+										href={link.link}
+										target="_blank"
 										size="xl"
 										radius="xs"
 										title={link.label}
@@ -121,7 +121,7 @@ export default function HeroSection() {
 					</Group>
 				</div>
 				<Image
-					src="https://scontent.fnuu2-1.fna.fbcdn.net/v/t1.6435-9/123549112_3390195514433537_1119106520716065407_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=84a396&_nc_ohc=LTwLUhufTp8AX8miS2f&_nc_ht=scontent.fnuu2-1.fna&oh=00_AT9Qpyw1lvnR-FvURGYNuJvOZBjzCP01EoW0cOZMeDTYVQ&oe=62FDFEA6"
+					src={HeroImg}
 					className={classes.image}/>
 			</div>
 		</Container>

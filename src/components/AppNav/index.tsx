@@ -7,11 +7,13 @@ import {
 	Container,
 	Group,
 	Button,
-	Burger, ActionIcon, Tooltip, Title,
+	Burger, ActionIcon, Tooltip, Title, Drawer, Stack, useMantineTheme,
 } from '@mantine/core';
 import {BrandGithub, ChevronDown, Icons, ThreeDCubeSphere} from 'tabler-icons-react';
 import {socialLinks} from "../../data/socialLinks";
 import {iconResolver} from '../../utils';
+import {startNavigationProgress} from "@mantine/nprogress";
+import {useLocation} from "react-router-dom";
 
 const HEADER_HEIGHT = 60;
 
@@ -20,7 +22,12 @@ const useStyles = createStyles((theme) => ({
 		position: "sticky",
 		borderBottom: "1px solid",
 		backgroundColor: theme.fn.variant({variant: 'filled', color: theme.primaryColor}).background,
-		color: "white"
+		color: "white",
+		marginBottom: 120,
+
+		[theme.fn.smallerThan('sm')]: {
+			marginBottom: 30
+		}
 	},
 	inner: {
 		height: HEADER_HEIGHT,
@@ -63,10 +70,56 @@ const useStyles = createStyles((theme) => ({
 				0.2
 			),
 		},
+		[theme.fn.smallerThan('sm')]: {
+			border: "1px solid",
+			borderColor: theme.fn.lighten(
+				theme.fn.variant({variant: 'filled', color: theme.primaryColor}).background,
+				0.4
+			),
+		},
 	},
 
 	linkLabel: {
 		marginRight: 5,
+	},
+
+	linkActive: {
+		display: 'block',
+		lineHeight: 1,
+		padding: '8px 12px',
+		borderRadius: theme.radius.sm,
+		textDecoration: 'none',
+		color: theme.white,
+		fontSize: theme.fontSizes.sm,
+		fontWeight: 500,
+		textTransform: 'capitalize',
+		backgroundColor: theme.fn.lighten(
+			theme.fn.variant({variant: 'filled', color: theme.primaryColor}).background,
+			0.4
+		),
+
+		'&:hover': {
+			backgroundColor: theme.fn.lighten(
+				theme.fn.variant({variant: 'filled', color: theme.primaryColor}).background,
+				0.4
+			),
+		}
+	},
+
+	socialLink: {
+		color: 'white',
+
+		'&:hover': {
+			backgroundColor: theme.fn.lighten(
+				theme.fn.variant({variant: 'filled', color: theme.primaryColor}).background,
+				0.2
+			),
+		},
+	},
+
+	sideMenu: {
+		backgroundColor: theme.fn.variant({variant: 'filled', color: theme.primaryColor}).background,
+		color: theme.white
 	},
 }));
 
@@ -81,7 +134,14 @@ interface AppNavProps {
 
 const AppNav = ({links}: AppNavProps) => {
 	const {classes} = useStyles();
+	const theme = useMantineTheme();
 	const [opened, setOpened] = useState(false);
+	const location = useLocation()
+
+	const urlResolver = (href: string) => {
+		return location.pathname === href
+	}
+
 	const items = links.map((link) => {
 		const menuItems = link.links?.map((item) => (
 			<Menu.Item key={item.link}>{item.label}</Menu.Item>
@@ -115,8 +175,8 @@ const AppNav = ({links}: AppNavProps) => {
 				component='a'
 				key={link.label}
 				href={link.link}
-				className={classes.link}
 				variant="subtle"
+				className={urlResolver(link.link) ? classes.linkActive : classes.link}
 			>
 				{link.label}
 			</Button>
@@ -127,29 +187,60 @@ const AppNav = ({links}: AppNavProps) => {
 		setOpened(!opened)
 	}
 
+	const handlePageLoad = () => {
+		startNavigationProgress()
+	}
+
 	return (
-		<Header height={HEADER_HEIGHT} sx={{borderBottom: 0}} mb={120} className={classes.header}>
+		<Header height={HEADER_HEIGHT} sx={{borderBottom: 0}} className={classes.header}>
 			<Container className={classes.inner}>
+				<Burger
+					opened={opened}
+					onClick={handleOpen}
+					className={classes.burger}
+					size="sm"
+					color="#fff"
+				/>
 				<a href="/" className={classes.brand}>Kelvin Kiptum</a>
 				<Group>
-					<Burger
-						opened={opened}
-						onClick={handleOpen}
-						className={classes.burger}
-						size="sm"
-					/>
 					<Group spacing={5} className={classes.links}>
 						{items}
 					</Group>
 				</Group>
-				<Button
-					leftIcon={<BrandGithub/>}
-					component="a"
-					href="https://github.com/kelvink96"
-					target="_blank"
+				<Group spacing={5}>
+					{socialLinks.links.map(link => link.type === 1 &&
+						<Tooltip
+							label={link.label}
+							key={`nav-${link.label}`}
+						>
+							<ActionIcon
+								component="a"
+								href={link.link}
+								target="_blank"
+								size="lg"
+								radius="xs"
+								title={link.label}
+								className={classes.socialLink}
+							>
+								{iconResolver(link.icon)}
+							</ActionIcon>
+						</Tooltip>
+					)}
+				</Group>
+				<Drawer
+					opened={opened}
+					onClose={() => setOpened(false)}
+					title="Menu"
+					padding="md"
+					size="xl"
+					className={classes.sideMenu}
+					transitionDuration={250}
+					transitionTimingFunction="ease"
 				>
-					Github
-				</Button>
+					<Stack>
+						{items}
+					</Stack>
+				</Drawer>
 			</Container>
 		</Header>
 	);

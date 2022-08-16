@@ -28,7 +28,8 @@ const useStyles = createStyles((theme) => ({
 		padding: '0 !important',
 	},
 	tr: {
-		textAlign: 'left'
+		textAlign: 'left',
+		textTransform: 'capitalize'
 	},
 	control: {
 		width: '100%',
@@ -141,7 +142,8 @@ const Certifications = ({data}: TableSortProps) => {
 					href={row.link}
 					target="_blank"
 					rightIcon={<ExternalLink size={14}/>}
-					variant="subtle"
+					variant="white"
+					compact
 				>
 					show credential
 				</Button>
@@ -152,75 +154,81 @@ const Certifications = ({data}: TableSortProps) => {
 	return (
 		<Box py="xl">
 			<Title mb="lg">Certifications</Title>
-			<ScrollArea>
-				<TextInput
-					placeholder="Search by any field"
-					mb="md"
-					icon={<Search size={14}/>}
-					value={search}
-					onChange={handleSearchChange}
-				/>
-				<Table
-					horizontalSpacing="md"
-					verticalSpacing="xs"
-					sx={{tableLayout: 'fixed', minWidth: 700}}
-				>
-					<caption className={classes.tr}>{data.length} certifications</caption>
-					<thead>
-					<tr>
-						<Th
-							sorted={sortBy === 'title'}
-							reversed={reverseSortDirection}
-							onSort={() => setSorting('title')}
-						>
-							Title
-						</Th>
-						<Th
-							sorted={sortBy === 'issuedOn'}
-							reversed={reverseSortDirection}
-							onSort={() => setSorting('issuedOn')}
-						>
-							Issued On
-						</Th>
-						<Th
-							sorted={sortBy === 'institution'}
-							reversed={reverseSortDirection}
-							onSort={() => setSorting('institution')}
-						>
-							Institution
-						</Th>
-						<Th
-							sorted={sortBy === 'institution'}
-							reversed={reverseSortDirection}
-							onSort={() => setSorting('institution')}
-						>
-							Link
-						</Th>
-					</tr>
-					</thead>
-					<tbody>
-					{rows.length > 0 ? (
-						rows
-					) : (
+			<Card
+				shadow="md"
+				withBorder
+				radius="xs"
+			>
+				<ScrollArea>
+					<TextInput
+						placeholder="Search by any field"
+						mb="md"
+						icon={<Search size={14}/>}
+						value={search}
+						onChange={handleSearchChange}
+					/>
+					<Table
+						horizontalSpacing="md"
+						verticalSpacing="xs"
+						sx={{tableLayout: 'fixed', minWidth: 700}}
+					>
+						<caption className={classes.tr}>{data.length} certifications</caption>
+						<thead>
 						<tr>
-							<td colSpan={Object.keys(data[0]).length}>
-								<Text weight={500} align="center">
-									Nothing found
-								</Text>
-							</td>
+							<Th
+								sorted={sortBy === 'title'}
+								reversed={reverseSortDirection}
+								onSort={() => setSorting('title')}
+							>
+								Title
+							</Th>
+							<Th
+								sorted={sortBy === 'issuedOn'}
+								reversed={reverseSortDirection}
+								onSort={() => setSorting('issuedOn')}
+							>
+								Issued On
+							</Th>
+							<Th
+								sorted={sortBy === 'institution'}
+								reversed={reverseSortDirection}
+								onSort={() => setSorting('institution')}
+							>
+								Institution
+							</Th>
+							<Th
+								sorted={sortBy === 'institution'}
+								reversed={reverseSortDirection}
+								onSort={() => setSorting('institution')}
+							>
+								Link
+							</Th>
 						</tr>
-					)}
-					</tbody>
-					<tfoot>
-					<tr>
-						<th>Title</th>
-						<th>Issued on</th>
-						<th>Institution</th>
-						<th>Link</th>
-					</tr>
-					</tfoot>
-				</Table>
-			</ScrollArea>
+						</thead>
+						<tbody>
+						{rows.length > 0 ? (
+							rows
+						) : (
+							<tr>
+								<td colSpan={Object.keys(data[0]).length}>
+									<Text weight={500} align="center">
+										Nothing found
+									</Text>
+								</td>
+							</tr>
+						)}
+						</tbody>
+						<tfoot>
+						<tr>
+							<th>Title</th>
+							<th>Issued on</th>
+							<th>Institution</th>
+							<th>Link</th>
+						</tr>
+						</tfoot>
+					</Table>
+				</ScrollArea>
+			</Card>
 		</Box>
 	)
 };

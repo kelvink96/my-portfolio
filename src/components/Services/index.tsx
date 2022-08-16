@@ -31,7 +31,16 @@ const ServicesSection = ({data}: ServicesProps) => {
 				<Text mb="lg">I help ambitious business like yours generate more profit by building awareness, driving web
 					traffic, connecting with customers and growing overall sales.</Text>
 			</Box>
-			<SimpleGrid cols={3} py="lg">
+			<SimpleGrid
+				cols={3}
+				py="lg"
+				spacing="lg"
+				breakpoints={[
+					{ maxWidth: 'md', cols: 3, spacing: 'md' },
+					{ maxWidth: 'sm', cols: 2, spacing: 'sm' },
+					{ maxWidth: 'xs', cols: 1, spacing: 'sm' },
+				]}
+			>
 				{data.map(d =>
 					<Card className={classes.content} p="md" withBorder key={d.title}>
 						<Image

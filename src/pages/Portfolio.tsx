@@ -3,10 +3,23 @@ import Wrapper from "./Wrapper";
 import {FeaturedProjectsSection} from "../components/Portfolio";
 import {ProjectsData} from '../data/projectsData';
 import {Helmet} from "react-helmet";
-import {Button} from '@mantine/core';
+import {Button, Center, createStyles} from '@mantine/core';
 import {ExternalLink} from 'tabler-icons-react';
 
+const useStyles = createStyles((theme) => ({
+	section: {
+		paddingTop: theme.spacing.xl * 2,
+		paddingBottom: theme.spacing.xl * 2,
+
+		[theme.fn.smallerThan('sm')]: {
+			paddingTop: theme.spacing.lg,
+			paddingBottom: theme.spacing.lg,
+		}
+	},
+}));
+
 const Portfolio = () => {
+	const {classes} = useStyles()
 	const [gitHubProfile, setGitHubProfile] = useState()
 	const [githubRepos, setgithubRepos] = useState()
 
@@ -27,26 +40,28 @@ const Portfolio = () => {
 			.then(result => setgithubRepos(result))
 	}
 
-	useEffect(() => {
-		fetchGitData()
-		fetchGitRepos()
-	}, [])
-
 	return (
 		<Wrapper>
 			<Helmet>
 				<title>Portfolio | Kelvin Kiptum</title>
 			</Helmet>
-			<FeaturedProjectsSection data={ProjectsData.data}/>
-			<Button
-				mt="xl"
-				component="a"
-				href="https://github.com/kelvink96?tab=repositories"
-				target="_blank"
-				rightIcon={<ExternalLink size={18}/>}
-			>
-				View more projects
-			</Button>
+			<div className={classes.section}>
+				<FeaturedProjectsSection data={ProjectsData.data}/>
+				<Center mt="xl">
+					<Button
+						mt="xl"
+						component="a"
+						href="https://github.com/kelvink96?tab=repositories"
+						target="_blank"
+						rightIcon={<ExternalLink size={18}/>}
+						variant="outline"
+						radius="xs"
+						size="md"
+					>
+						View more projects
+					</Button>
+				</Center>
+			</div>
 		</Wrapper>
 	);
 };

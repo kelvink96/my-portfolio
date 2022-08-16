@@ -16,7 +16,20 @@ import {Helmet} from "react-helmet";
 
 const {Col} = Grid
 
+const useStyles = createStyles((theme) => ({
+	section: {
+		paddingTop: theme.spacing.xl * 2,
+		paddingBottom: theme.spacing.xl * 2,
+
+		[theme.fn.smallerThan('sm')]: {
+			paddingTop: theme.spacing.lg,
+			paddingBottom: theme.spacing.lg,
+		}
+	},
+}));
+
 const About = () => {
+	const {classes} = useStyles()
 	return (
 		<Wrapper>
 			<Helmet>
@@ -24,20 +37,20 @@ const About = () => {
 			</Helmet>
 			<Container>
 				<Grid>
-					<Col span={7} pb="xl">
+					<Col md={12} lg={7} className={classes.section}>
 						<BioSection/>
 					</Col>
-					<Col span={5} pb="xl">
+					<Col md={12} lg={5} className={classes.section}>
 						<EducationSection/>
 						<MoreInfoSection/>
 					</Col>
-					<Col>
+					<Col className={classes.section}>
 						<SkillsSection data={SkillsData.data}/>
 					</Col>
-					<Col>
+					<Col className={classes.section}>
 						<WorkExperienceSection data={WorkExperienceData.data}/>
 					</Col>
-					<Col>
+					<Col className={classes.section}>
 						<CertificationSection data={AwardsLinks.data}/>
 					</Col>
 				</Grid>

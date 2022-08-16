@@ -1,4 +1,4 @@
-import {createStyles, Anchor, Group, ActionIcon, Text, Tooltip} from '@mantine/core';
+import {createStyles, Anchor, Group, ActionIcon, Text, Tooltip, Container} from '@mantine/core';
 import {socialLinks} from '../../data/socialLinks';
 import {iconResolver} from '../../utils';
 
@@ -7,6 +7,9 @@ const useStyles = createStyles((theme) => ({
 		marginTop: 120,
 		borderTop: `1px solid ${theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[2]
 		}`,
+		[theme.fn.smallerThan('sm')]: {
+			marginTop: 30
+		}
 	},
 
 	inner: {
@@ -26,6 +29,15 @@ const useStyles = createStyles((theme) => ({
 			marginBottom: theme.spacing.sm,
 		},
 	},
+
+	copyrightText: {
+		fontSize: theme.fontSizes.sm,
+
+		[theme.fn.smallerThan('sm')]: {
+			marginTop: theme.spacing.xs,
+			marginBottom: theme.spacing.sm
+		}
+	}
 }));
 
 interface FooterProps {
@@ -37,18 +49,31 @@ export function FooterSection() {
 
 	return (
 		<div className={classes.footer}>
-			<div className={classes.inner}>
+			<Container className={classes.inner}>
 				<Text weight={500}>Kelvin Kiptum</Text>
-				<Text size="sm">Copyright © {new Date().getFullYear().toString()}. All Rights Reserved.</Text>
+				<Text className={classes.copyrightText}>Copyright © {new Date().getFullYear().toString()}. All Rights Reserved.</Text>
 				<Group spacing="xs" position="right" noWrap>
-					{socialLinks.links.map(link => link.type == 0 &&
-						<Tooltip label={link.label}>
-							<ActionIcon size="lg" radius="xs" title={link.label}
-													variant="default">{iconResolver(link.icon)}</ActionIcon>
+					{socialLinks.links.map(link => link.type === 0 &&
+						<Tooltip
+							label={link.label}
+							key={`footer-${link.label}`}
+						>
+							<ActionIcon
+								component="a"
+								href={link.link}
+								target="_blank"
+								size="lg"
+								radius="xs"
+								title={link.label}
+								variant="transparent"
+								color="primary"
+							>
+								{iconResolver(link.icon)}
+							</ActionIcon>
 						</Tooltip>
 					)}
 				</Group>
-			</div>
+			</Container>
 		</div>
 	);
 }

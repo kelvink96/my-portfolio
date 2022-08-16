@@ -15,19 +15,23 @@ const MoreInfo = () => {
 
 	return (
 		<div>
-			<SimpleGrid cols={1}>
-				<Box>
-					<Title mb="lg" order={3} className={classes.title}>Hobbies</Title>
-					<Card withBorder p="md" className={classes.content}>
-						<List type="ordered" size="md">
-							<List.Item>Gaming</List.Item>
-							<List.Item>Hiking</List.Item>
-							<List.Item>Listening to music</List.Item>
-							<List.Item>Watching movies</List.Item>
-						</List>
-					</Card>
-				</Box>
-			</SimpleGrid>
+			<Box>
+				<Title mb="lg" className={classes.title}>Hobbies</Title>
+				<Card
+					p="md"
+					className={classes.content}
+					shadow="md"
+					withBorder
+					radius="xs"
+				>
+					<List size="md">
+						<List.Item>Gaming</List.Item>
+						<List.Item>Hiking</List.Item>
+						<List.Item>Listening to music</List.Item>
+						<List.Item>Watching movies</List.Item>
+					</List>
+				</Card>
+			</Box>
 		</div>
 	);
 };
