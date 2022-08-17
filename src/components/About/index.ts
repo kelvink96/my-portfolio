@@ -1,0 +1,6 @@
+export {default as BioSection} from "./Bio"
+export {default as CertificationSection} from "./Certifications"
+export {default as EducationSection} from "./Education"
+export {default as MoreInfoSection} from "./MoreInfo"
+export {default as WorkExperienceSection} from "./WorkExperience"
+export {default as SkillsSection} from "./Skills"
