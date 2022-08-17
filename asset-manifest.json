@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/my-portfolio/static/css/main.e6c13ad2.css",
+    "main.js": "/my-portfolio/static/js/main.f77724a5.js",
+    "static/js/787.128fc6e9.chunk.js": "/my-portfolio/static/js/787.128fc6e9.chunk.js",
+    "static/media/hero.jpg": "/my-portfolio/static/media/hero.8e5144cc805999857d0f.jpg",
+    "static/media/Poppins-Regular.woff2": "/my-portfolio/static/media/Poppins-Regular.ad19729d6a0511212493.woff2",
+    "static/media/Poppins-SemiBold.woff2": "/my-portfolio/static/media/Poppins-SemiBold.3c3f3613b59d581739fc.woff2",
+    "static/media/Poppins-Light.woff2": "/my-portfolio/static/media/Poppins-Light.9bec05ab7f83d34eb905.woff2",
+    "static/media/Poppins-ExtraLight.woff2": "/my-portfolio/static/media/Poppins-ExtraLight.8a5423f83d49c5ba6eea.woff2",
+    "static/media/Poppins-ExtraBold.woff2": "/my-portfolio/static/media/Poppins-ExtraBold.5b57f3aae2d78f5ee992.woff2",
+    "static/media/Poppins-Bold.woff2": "/my-portfolio/static/media/Poppins-Bold.dd24d10e037690f2bdcd.woff2",
+    "static/media/Poppins-Medium.woff2": "/my-portfolio/static/media/Poppins-Medium.563f976db73ca07d8fc3.woff2",
+    "static/media/Poppins-Black.woff2": "/my-portfolio/static/media/Poppins-Black.9f8a4a5f1e0fe91ec9f7.woff2",
+    "static/media/graphic-designer.png": "/my-portfolio/static/media/graphic-designer.ac5cc1edae28e3741537.png",
+    "static/media/Poppins-Thin.woff2": "/my-portfolio/static/media/Poppins-Thin.852bafc278ec1d018963.woff2",
+    "static/media/app-development.png": "/my-portfolio/static/media/app-development.f9d169e80e84e333a6d1.png",
+    "static/media/ux.png": "/my-portfolio/static/media/ux.ffa3e0dd754dc923e50b.png",
+    "index.html": "/my-portfolio/index.html",
+    "main.e6c13ad2.css.map": "/my-portfolio/static/css/main.e6c13ad2.css.map",
+    "main.f77724a5.js.map": "/my-portfolio/static/js/main.f77724a5.js.map",
+    "787.128fc6e9.chunk.js.map": "/my-portfolio/static/js/787.128fc6e9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.f77724a5.js"
+  ]
+}
