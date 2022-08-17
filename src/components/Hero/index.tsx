@@ -14,6 +14,7 @@ import {ChevronUpRight, Send} from 'tabler-icons-react';
 import {socialLinks} from '../../data/socialLinks';
 import {iconResolver} from '../../utils';
 import HeroImg from '../../assets/img/hero.jpg'
+import {Link} from "react-router-dom";
 
 const useStyles = createStyles((theme) => ({
 	inner: {
@@ -84,16 +85,16 @@ export default function HeroSection() {
 						<Button
 							size="lg"
 							rightIcon={<Send/>}
-							component="a"
-							href="/contact"
+							component={Link}
+							to="/contact"
 						>
 							Let's talk
 						</Button>
 						<Button
 							size="lg"
 							rightIcon={<ChevronUpRight/>}
-							component="a"
-							href="/portfolio"
+							component={Link}
+							to="/portfolio"
 						>
 							Portfolio
 						</Button>

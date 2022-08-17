@@ -13,7 +13,7 @@ import {BrandGithub, ChevronDown, Icons, ThreeDCubeSphere} from 'tabler-icons-re
 import {socialLinks} from "../../data/socialLinks";
 import {iconResolver} from '../../utils';
 import {startNavigationProgress} from "@mantine/nprogress";
-import {useLocation} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 
 const HEADER_HEIGHT = 60;
 
@@ -172,9 +172,9 @@ const AppNav = ({links}: AppNavProps) => {
 
 		return (
 			<Button
-				component='a'
+				component={Link}
 				key={link.label}
-				href={link.link}
+				to={link.link}
 				variant="subtle"
 				className={urlResolver(link.link) ? classes.linkActive : classes.link}
 			>
