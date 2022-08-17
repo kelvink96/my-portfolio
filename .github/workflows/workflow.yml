@@ -13,6 +13,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
 
+      - run: CI=false
+
       - name: Install and Build
         run: npm install && npm run build
 
