@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "author": "Kelvin Kiptum Kiprop",
-  "homepage": "https://kelvink96.github.io/me/",
+  "homepage": "https://kelvink96.github.io/my-portfolio/",
   "dependencies": {
     "@emotion/react": "^11.10.0",
     "@mantine/carousel": "^5.1.6",
